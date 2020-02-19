@@ -13,7 +13,7 @@ function Header({ isHandleDrawerVisible, handleDrawer, isDrawerOpen }) {
           id="handle-drawer-btn"
           onClick={handleDrawer}
           className="trigger"
-          type={isDrawerOpen ? "menu-unfold" : "menu-fold"}
+          type={!isDrawerOpen ? "menu-unfold" : "menu-fold"}
         />
       ),
     [isHandleDrawerVisible, handleDrawer, isDrawerOpen]
