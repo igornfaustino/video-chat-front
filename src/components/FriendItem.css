@@ -1,0 +1,9 @@
+.friend-item span:nth-child(2) {
+  margin-left: 8px;
+}
+
+.friend-item {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
