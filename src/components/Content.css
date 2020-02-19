@@ -1,0 +1,12 @@
+#main-content {
+  background-color: #353942;
+}
+
+#content-wrapper {
+  padding: 16px;
+  height: 100%;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
