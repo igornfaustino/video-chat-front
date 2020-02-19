@@ -5,17 +5,16 @@ import "./Content.css";
 
 const { Content: ContentAnd } = Layout;
 
-function Content({ children, isHandleDrawerVisible, handleDrawer }) {
-  const getOverlayClass = useMemo(
-    () => (isHandleDrawerVisible ? "overlay" : ""),
-    [isHandleDrawerVisible]
-  );
+function Content({ children, isDrawerOpen, handleDrawer }) {
+  const getOverlayClass = useMemo(() => (isDrawerOpen ? "overlay" : ""), [
+    isDrawerOpen
+  ]);
 
   const handleClick = useCallback(() => {
-    if (isHandleDrawerVisible) {
+    if (isDrawerOpen) {
       handleDrawer();
     }
-  }, [isHandleDrawerVisible, handleDrawer]);
+  }, [isDrawerOpen, handleDrawer]);
 
   return (
     <ContentAnd id="main-content">

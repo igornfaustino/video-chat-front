@@ -26,7 +26,7 @@ describe("Test container overlay when drawer is open", () => {
   });
 
   test("should render render a overlay div when the drawer is open", () => {
-    const wrapper = getWrapper({ isHandleDrawerVisible: true });
+    const wrapper = getWrapper({ isDrawerOpen: true });
     expect(wrapper.find("#content-wrapper").prop("className")).toContain(
       "overlay"
     );
@@ -35,7 +35,7 @@ describe("Test container overlay when drawer is open", () => {
   test("should have a onClick function and should be called when drawer is open", () => {
     const handleDrawerMock = jest.fn();
     const wrapper = getWrapper({
-      isHandleDrawerVisible: true,
+      isDrawerOpen: true,
       handleDrawer: handleDrawerMock
     });
     wrapper.find("#content-wrapper").simulate("click");
@@ -45,7 +45,7 @@ describe("Test container overlay when drawer is open", () => {
   test("should have a onClick function and NOT should be called when drawer is CLOSE", () => {
     const handleDrawerMock = jest.fn();
     const wrapper = getWrapper({
-      isHandleDrawerVisible: false,
+      isDrawerOpen: false,
       handleDrawer: handleDrawerMock
     });
     wrapper.find("#content-wrapper").simulate("click");
