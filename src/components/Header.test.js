@@ -19,4 +19,9 @@ describe("<Header/> works properly", () => {
     wrapper.find("#handle-drawer-btn").simulate("click");
     expect(handleDrawerMock).toHaveBeenCalled();
   });
+
+  test("Render app logo on the header", () => {
+    const wrapper = getWrapper({ isHandleDrawerVisible: true });
+    expect(wrapper.find(".logo").text()).toBe("Awesome Video App");
+  });
 });
