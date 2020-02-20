@@ -1,25 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useCallback } from "react";
+import { Layout } from "antd";
+import useWindowSize from "./hooks/useWindow";
+import "./App.css";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Sider from "./components/Sider";
+import Home from "./pages/Home";
+
+const friends = [
+  { name: "Igor Faustino" },
+  { name: "Joao Pedro" },
+  { name: "Guilherme Ribeiro Cunha" }
+];
 
 function App() {
+  const [collapsed, setCollapsed] = useState(true);
+  const [collapsible, setCollapsible] = useState(true);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (windowSize.innerWidth <= 768) {
+      setCollapsed(true);
+      setCollapsible(true);
+    } else {
+      setCollapsed(false);
+      setCollapsible(false);
+    }
+  }, [windowSize, windowSize.innerWidth]);
+
+  const handleDrawer = useCallback(() => {
+    setCollapsed(!collapsed);
+  }, [collapsed]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout className="app">
+      <Header
+        isHandleDrawerVisible={collapsible}
+        handleDrawer={handleDrawer}
+        isDrawerOpen={!collapsed}
+      />
+      <Layout>
+        <Sider
+          collapsed={collapsed}
+          collapsible={collapsible}
+          friends={friends}
+        />
+        <Content
+          isDrawerOpen={collapsible && !collapsed}
+          handleDrawer={handleDrawer}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Home />
+        </Content>
+      </Layout>
+    </Layout>
   );
 }
 
