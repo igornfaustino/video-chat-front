@@ -1,0 +1,6 @@
+.sider {
+  background-color: #353942 !important;
+  border-right: 2px solid #474b54;
+  overflow: auto;
+  height: 100%;
+}

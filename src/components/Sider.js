@@ -2,6 +2,8 @@ import React, { useMemo } from "react";
 import { Layout, Menu } from "antd";
 import FriendItem from "./FriendItem";
 
+import "./Sider.css";
+
 const { Sider: SiderAnt } = Layout;
 
 function Sider({ friends = [], collapsed, collapsible }) {
