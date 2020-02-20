@@ -1,0 +1,14 @@
+.home {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-msg {
+  font-size: 18px;
+  color: white;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
